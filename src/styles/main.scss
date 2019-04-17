@@ -1,0 +1,36 @@
+body {
+  background-color: lightgrey;
+}
+
+#app {
+  display: flex;
+  flex-flow: row wrap;
+  height: 700px;
+  #eat {
+    background-color: pink;
+    width: 48%;
+    margin: 1%;
+    border-radius: 200px 0px 0px 0px;
+  }
+  #play {
+    background-color: green;
+    width: 48%;
+    margin: 1%;
+    border-radius: 0px 200px 0px 0px;
+
+  }
+  #fight {
+    background-color: orange;
+    width: 48%;
+    margin: 1%;
+    border-radius: 0px 0px 0px 200px;
+
+  }
+  #sleep {
+    background-color: purple;
+    width: 48%;
+    margin: 1%;
+    border-radius: 0px 0px 200px 0px;
+
+  }
+}
