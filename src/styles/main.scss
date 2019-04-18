@@ -6,6 +6,11 @@ body {
   display: flex;
   flex-flow: row wrap;
   height: 700px;
+
+  h2 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 3em;
+  }
   #eat {
     background-color: pink;
     width: 48%;
@@ -32,5 +37,10 @@ body {
     margin: 1%;
     border-radius: 0px 0px 200px 0px;
 
+  }
+  button {
+    background-color: rgb(175, 172, 172);
+    font-size: .75em;
+    border-radius: 10%;
   }
 }

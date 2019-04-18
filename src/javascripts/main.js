@@ -1,8 +1,8 @@
 import '../styles/main.scss';
-import tamagotchi from '../javascripts/components/tamagotchi';
+import tamagotchi from './components/tamagotchi/tamagotchi';
 
 const init = () => {
-  tamagotchi.getData();
+  tamagotchi.domStringBuilder();
 };
 
 init();
