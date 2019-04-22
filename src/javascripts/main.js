@@ -1,8 +1,10 @@
 import '../styles/main.scss';
-import tamagotchi from '../javascripts/components/tamagotchi';
+import tamagotchi from './components/tamagotchi/tamagotchi';
+import buttons from './components/buttons/buttons';
 
 const init = () => {
-  tamagotchi.getData();
+  tamagotchi.domStringBuilder();
+  buttons.eventListeners();
 };
 
 init();
