@@ -1,36 +1,71 @@
 import quadrantData from '../../helpers/data/quadrantData';
+// import tamagotchi from '../tamagotchi/tamagotchi';
 
 import util from '../../helpers/util';
 
-const quadrantInfo = quadrantData.getQuadrantData();
-const printToDomFunction = util.printToDom;
+const printToDomFunc = util.printToDom;
 
-let totalScore = 400;
+// const domStringBuild = tamagotchi.domStringBuilder;
+const quadrantInfo = quadrantData.getQuadrantData();
+let eatScore = 0;
+let playScore = 0;
+let fightScore = 0;
+let sleepScore = 0;
 
 const buttonEvents = (e) => {
-  const buttonId = e.target.id;
-  const index = quadrantInfo.findIndex(p => p.id === buttonId);
   let domString = '';
-  if (buttonId === 'broccoliBtn') {
-    const targetDiv = 'eatScore';
-    const itemScore = quadrantInfo[index].score;
-    itemScore += 10;
-    totalScore += 10;
-  }
-  domString += `<h4>${itemScore}</h4>`;
-  printToDomFunction(targetDiv, domString);
-  printToDomFunction('progress', totalScore);
+  const buttonId = e.target.id;
+  quadrantInfo.forEach((quadrant) => {
+    const quadrantId = quadrant.id;
+    const buttonOne = quadrant.button1;
+    const buttonOneValue = quadrant.button1points;
+    const buttonTwo = quadrant.button2;
+    const buttonTwoValue = quadrant.button2points;
+    if (quadrantId === 'eat') {
+      if (buttonId === buttonOne) {
+        eatScore += buttonOneValue;
+      } else if (buttonId === buttonTwo) {
+        eatScore += buttonTwoValue;
+      }
+      domString += `<h3>${eatScore}</h3>`;
+      printToDomFunc('eatScore', domString);
+    } else if (quadrantId === 'play') {
+      if (buttonId === buttonOne) {
+        playScore += buttonOneValue;
+      } else if (buttonId === buttonTwo) {
+        playScore += buttonTwoValue;
+      }
+      domString += `<h3>${playScore}</h3>`;
+      printToDomFunc('playScore', domString);
+    } else if (quadrantId === 'fight') {
+      if (buttonId === buttonOne) {
+        fightScore += buttonOneValue;
+      } else if (buttonId === buttonTwo) {
+        fightScore += buttonTwoValue;
+      }
+      domString += `<h3>${fightScore}</h3>`;
+      printToDomFunc('fightScore', domString);
+    } else if (quadrantId === 'sleep') {
+      if (buttonId === buttonOne) {
+        sleepScore += buttonOneValue;
+      } else if (buttonId === buttonTwo) {
+        sleepScore += buttonTwoValue;
+      }
+      domString += `<h3>${sleepScore}</h3>`;
+      printToDomFunc('sleepScore', domString);
+    }
+  });
 };
 
 const eventListeners = () => {
-  document.getElementById('broccoliBtn').addEventListener('click', buttonEvents);
-  document.getElementById('chocolateBtn').addEventListener('click', buttonEvents);
-  document.getElementById('trampolineBtn').addEventListener('click', buttonEvents);
-  document.getElementById('badmintonBtn').addEventListener('click', buttonEvents);
-  document.getElementById('runBtn').addEventListener('click', buttonEvents);
-  document.getElementById('judo-chopBtn').addEventListener('click', buttonEvents);
-  document.getElementById('napBtn').addEventListener('click', buttonEvents);
-  document.getElementById('slumberBtn').addEventListener('click', buttonEvents);
+  document.getElementById('broccoli').addEventListener('click', buttonEvents);
+  document.getElementById('chocolate').addEventListener('click', buttonEvents);
+  document.getElementById('trampoline').addEventListener('click', buttonEvents);
+  document.getElementById('badminton').addEventListener('click', buttonEvents);
+  document.getElementById('run').addEventListener('click', buttonEvents);
+  document.getElementById('judo-chop').addEventListener('click', buttonEvents);
+  document.getElementById('nap').addEventListener('click', buttonEvents);
+  document.getElementById('slumber').addEventListener('click', buttonEvents);
 };
 
-export default { eventListeners }
+export default { eventListeners };
