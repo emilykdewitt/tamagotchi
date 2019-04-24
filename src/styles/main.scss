@@ -4,12 +4,42 @@ body {
 
 #progress {
   width: 100%;
+  border: 2px black solid;
+  border-radius: 4px;
+  height: 40px;
+}
+
+#progressBar {
+  background-color: rgb(79, 79, 153);
+  width: 0%;
+  height: 34px;
+  margin: 3px;
+}
+
+#appAndPetContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#app, #pet {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#pet {
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+  margin: 12% 45%;
 }
 
 #app {
   display: flex;
   flex-flow: row wrap;
-  height: 700px;
   .quadInfo {
     margin-left: 85px;
   }

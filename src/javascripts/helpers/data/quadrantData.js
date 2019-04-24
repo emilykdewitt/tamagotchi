@@ -6,7 +6,6 @@ const quadrantData = [
     button2: 'chocolate',
     button2points: -3,
     meter: 'fullness',
-    score: 0,
   },
   {
     id: 'play',
@@ -15,16 +14,14 @@ const quadrantData = [
     button2: 'badminton',
     button2points: 2,
     meter: 'fun',
-    score: 0,
   },
   {
     id: 'fight',
     button1: 'run',
-    button1points: 1,
+    button1points: 5,
     button2: 'judo-chop',
     button2points: -10,
     meter: 'strength',
-    score: 0,
   },
   {
     id: 'sleep',
@@ -33,7 +30,6 @@ const quadrantData = [
     button2: 'slumber',
     button2points: 60,
     meter: 'energy',
-    score: 0,
   },
 ];
 

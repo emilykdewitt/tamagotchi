@@ -1,60 +1,79 @@
 import quadrantData from '../../helpers/data/quadrantData';
-// import tamagotchi from '../tamagotchi/tamagotchi';
 
-import util from '../../helpers/util';
-
-const printToDomFunc = util.printToDom;
-
-// const domStringBuild = tamagotchi.domStringBuilder;
 const quadrantInfo = quadrantData.getQuadrantData();
 let eatScore = 0;
 let playScore = 0;
 let fightScore = 0;
 let sleepScore = 0;
+let totalScore = 0;
 
 const buttonEvents = (e) => {
-  let domString = '';
   const buttonId = e.target.id;
   quadrantInfo.forEach((quadrant) => {
-    const quadrantId = quadrant.id;
-    const buttonOne = quadrant.button1;
-    const buttonOneValue = quadrant.button1points;
-    const buttonTwo = quadrant.button2;
-    const buttonTwoValue = quadrant.button2points;
-    if (quadrantId === 'eat') {
-      if (buttonId === buttonOne) {
-        eatScore += buttonOneValue;
-      } else if (buttonId === buttonTwo) {
-        eatScore += buttonTwoValue;
+    if (quadrant.id === 'eat') {
+      if (buttonId === quadrant.button1) {
+        const newScore = eatScore + quadrant.button1points;
+        if (newScore >= 0 && newScore <= 100) {
+          eatScore = newScore;
+          document.getElementById('eatScore').innerHTML = eatScore;
+        }
+      } else if (buttonId === quadrant.button2) {
+        const newScore = eatScore + quadrant.button2points;
+        if (newScore >= 0 && newScore <= 100) {
+          eatScore = newScore;
+          document.getElementById('eatScore').innerHTML = eatScore;
+        }
       }
-      domString += `<h3>${eatScore}</h3>`;
-      printToDomFunc('eatScore', domString);
-    } else if (quadrantId === 'play') {
-      if (buttonId === buttonOne) {
-        playScore += buttonOneValue;
-      } else if (buttonId === buttonTwo) {
-        playScore += buttonTwoValue;
+    } else if (quadrant.id === 'play') {
+      if (buttonId === quadrant.button1) {
+        const newScore = playScore + quadrant.button1points;
+        if (newScore >= 0 && newScore <= 100) {
+          playScore = newScore;
+          document.getElementById('playScore').innerHTML = playScore;
+        }
+      } else if (buttonId === quadrant.button2) {
+        const newScore = playScore + quadrant.button2points;
+        if (newScore >= 0 && newScore <= 100) {
+          playScore = newScore;
+          document.getElementById('playScore').innerHTML = playScore;
+        }
       }
-      domString += `<h3>${playScore}</h3>`;
-      printToDomFunc('playScore', domString);
-    } else if (quadrantId === 'fight') {
-      if (buttonId === buttonOne) {
-        fightScore += buttonOneValue;
-      } else if (buttonId === buttonTwo) {
-        fightScore += buttonTwoValue;
+    } else if (quadrant.id === 'fight') {
+      if (buttonId === quadrant.button1) {
+        const newScore = fightScore + quadrant.button1points;
+        if (newScore >= 0 && newScore <= 100) {
+          fightScore = newScore;
+          document.getElementById('fightScore').innerHTML = fightScore;
+        }
+      } else if (buttonId === quadrant.button2) {
+        const newScore = fightScore + quadrant.button2points;
+        if (newScore >= 0 && newScore <= 100) {
+          fightScore = newScore;
+          document.getElementById('fightScore').innerHTML = fightScore;
+        }
       }
-      domString += `<h3>${fightScore}</h3>`;
-      printToDomFunc('fightScore', domString);
-    } else if (quadrantId === 'sleep') {
-      if (buttonId === buttonOne) {
-        sleepScore += buttonOneValue;
-      } else if (buttonId === buttonTwo) {
-        sleepScore += buttonTwoValue;
+    }
+    if (quadrant.id === 'sleep') {
+      if (buttonId === quadrant.button1) {
+        const newScore = sleepScore + quadrant.button1points;
+        if (newScore >= 0 && newScore <= 100) {
+          sleepScore = newScore;
+          document.getElementById('sleepScore').innerHTML = sleepScore;
+        }
+      } else if (buttonId === quadrant.button2) {
+        const newScore = sleepScore + quadrant.button2points;
+        if (newScore >= 0 && newScore <= 100) {
+          sleepScore = newScore;
+          document.getElementById('sleepScore').innerHTML = sleepScore;
+        }
       }
-      domString += `<h3>${sleepScore}</h3>`;
-      printToDomFunc('sleepScore', domString);
     }
   });
+  totalScore = eatScore + sleepScore + playScore + fightScore;
+  let progressBarWidth = totalScore / 4;
+  progressBarWidth += '%';
+  document.getElementById('progressBar').style.width = progressBarWidth;
+  console.error(progressBarWidth);
 };
 
 const eventListeners = () => {
