@@ -30,6 +30,11 @@ body {
   left: 0;
 }
 
+.quad {
+  display: flex;
+  justify-content: space-around;
+}
+
 #pet {
   z-index: 10;
   align-items: center;
@@ -37,12 +42,16 @@ body {
   margin: 12% 45%;
 }
 
+.btn1 {
+  background-color: rgb(22, 117, 117)
+}
+.btn2 {
+  background-color: rgb(214, 93, 93)
+}
+
 #app {
   display: flex;
   flex-flow: row wrap;
-  .quadInfo {
-    margin-left: 85px;
-  }
   h2 {
     font-family: 'Luckiest Guy', cursive;
     font-size: 3em;

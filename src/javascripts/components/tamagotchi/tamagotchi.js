@@ -16,8 +16,8 @@ const domStringBuilder = () => {
     let domString = '';
     domString += '<div class="quadInfo">';
     domString += `<h2>${quadrant.id}</h2>`;
-    domString += `<button id="${quadrant.button1}" class="${quadrant.id}">${quadrant.button1}</button>`;
-    domString += `<button id="${quadrant.button2}">${quadrant.button2}</button>`;
+    domString += `<button id="${quadrant.button1}" class="btn1 ${quadrant.id}">${quadrant.button1}</button>`;
+    domString += `<button id="${quadrant.button2}" class="btn2">${quadrant.button2}</button>`;
     domString += `<h3>${quadrant.meter}: </h3>`;
     if (quadrant.id === 'eat') {
       domString += `<h3 id="eatScore">${eatScore}</h3>`;

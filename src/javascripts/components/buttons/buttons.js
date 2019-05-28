@@ -73,7 +73,6 @@ const buttonEvents = (e) => {
   let progressBarWidth = totalScore / 4;
   progressBarWidth += '%';
   document.getElementById('progressBar').style.width = progressBarWidth;
-  console.error(progressBarWidth);
 };
 
 const eventListeners = () => {
